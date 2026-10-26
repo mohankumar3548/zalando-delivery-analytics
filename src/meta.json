@@ -1,0 +1,51 @@
+{
+  "num": "11",
+  "area": "Operations",
+  "product": "Delivery Performance Root Cause",
+  "title": "Zalando Delivery Doctor",
+  "company": "Zalando",
+  "why": "Zalando ships fashion across Europe from several large fulfillment centres, and late parcels turn straight into complaints and returns. This tool breaks every order into its stages, finds what makes parcels late and tests fixes.",
+  "problem": "An e-commerce company is experiencing increasing delivery delays and customer complaints despite having adequate logistics capacity. Develop an AI system that analyzes orders, warehouses, routes, staffing, inventory and delivery data to identify the root causes and recommend operational improvements.",
+  "data_note": "6,000 orders from 4 fulfillment centres over 4 weeks with stage timestamps, staffing, carriers and complaints (sample data).",
+  "steps": [
+    {
+      "step": "Collect order and ops data",
+      "detail": "Orders, warehouses, shifts, staffing, stock location, carriers, delivery scans"
+    },
+    {
+      "step": "Split the order timeline",
+      "detail": "Order→pick, pick→pack, pack→dispatch, dispatch→delivery"
+    },
+    {
+      "step": "Late-delivery model",
+      "detail": "Logistic regression with feature contributions"
+    },
+    {
+      "step": "Root cause by site and shift",
+      "detail": "Late rate heatmap, warehouse × shift"
+    },
+    {
+      "step": "Stock placement check",
+      "detail": "Orders shipped from a far warehouse because stock sat elsewhere"
+    },
+    {
+      "step": "Route optimisation",
+      "detail": "Nearest-neighbour + 2-opt on a last-mile route"
+    },
+    {
+      "step": "Complaint text",
+      "detail": "Keyword grouping of complaint messages"
+    },
+    {
+      "step": "Improvement plan",
+      "detail": "Simulate staffing and stock fixes with the model"
+    }
+  ],
+  "questions": [
+    "What is the main reason parcels are late?",
+    "Which warehouse and shift should we fix first?",
+    "Is the carrier the problem or our warehouses?",
+    "Draft a note to the Erfurt site lead"
+  ],
+  "author": "K Mohan Kumar"
+}

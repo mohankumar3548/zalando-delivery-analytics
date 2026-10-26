@@ -1,0 +1,207 @@
+{
+  "title": "Zalando Delivery Doctor",
+  "company": "Zalando",
+  "kpis": [
+    {
+      "label": "Late deliveries",
+      "value": "17.7%",
+      "note": "1,062 of 6,000 orders"
+    },
+    {
+      "label": "Worst cell",
+      "value": "Erfurt Night",
+      "note": "37% late, staffing 68% of plan"
+    },
+    {
+      "label": "Top root cause",
+      "value": "Stock in wrong warehouse",
+      "note": "Largest push on late orders"
+    },
+    {
+      "label": "Late rate after fixes",
+      "value": "14.0%",
+      "note": "333,330 fewer late parcels a year"
+    },
+    {
+      "label": "Cost avoided",
+      "value": "\u20ac1.5M",
+      "note": "At \u20ac4.5 per late parcel"
+    }
+  ],
+  "algorithm": [
+    {
+      "step": "Collect order and ops data",
+      "output": "6,000 orders, 17.7% late"
+    },
+    {
+      "step": "Split the order timeline",
+      "output": "Average order-to-door 53 hrs"
+    },
+    {
+      "step": "Late-delivery model",
+      "output": "AUC 0.898; top cause Stock in wrong warehouse"
+    },
+    {
+      "step": "Root cause by site and shift",
+      "output": "Worst: Erfurt Night shift at 37% late"
+    },
+    {
+      "step": "Stock placement check",
+      "output": "11% of orders shipped from the wrong site; 66% of those late"
+    },
+    {
+      "step": "Route optimisation",
+      "output": "Route 51% shorter after 2-opt"
+    },
+    {
+      "step": "Complaint text",
+      "output": "508 complaints, top theme Late delivery"
+    },
+    {
+      "step": "Improvement plan",
+      "output": "Late rate 17.7% -> 14.0%"
+    }
+  ],
+  "tables": {
+    "Late rate by site and shift": [
+      {
+        "warehouse": "Brieselang",
+        "Early": 0.171,
+        "Late": 0.164,
+        "Night": 0.158
+      },
+      {
+        "warehouse": "Erfurt",
+        "Early": 0.126,
+        "Late": 0.148,
+        "Night": 0.371
+      },
+      {
+        "warehouse": "Lahr",
+        "Early": 0.171,
+        "Late": 0.262,
+        "Night": 0.176
+      },
+      {
+        "warehouse": "M\u00f6nchengladbach",
+        "Early": 0.155,
+        "Late": 0.173,
+        "Night": 0.118
+      }
+    ],
+    "Optimised stop sequence": [
+      {
+        "sequence": 0,
+        "label": "Depot",
+        "x_km": 5.0,
+        "y_km": 3.5
+      },
+      {
+        "sequence": 1,
+        "label": "Stop 11",
+        "x_km": 6.24,
+        "y_km": 4.67
+      },
+      {
+        "sequence": 2,
+        "label": "Stop 12",
+        "x_km": 7.51,
+        "y_km": 6.57
+      },
+      {
+        "sequence": 3,
+        "label": "Stop 10",
+        "x_km": 9.16,
+        "y_km": 7.0
+      },
+      {
+        "sequence": 4,
+        "label": "Stop 9",
+        "x_km": 9.4,
+        "y_km": 2.38
+      },
+      {
+        "sequence": 5,
+        "label": "Stop 6",
+        "x_km": 9.56,
+        "y_km": 0.79
+      },
+      {
+        "sequence": 6,
+        "label": "Stop 13",
+        "x_km": 7.52,
+        "y_km": 0.45
+      },
+      {
+        "sequence": 7,
+        "label": "Stop 3",
+        "x_km": 7.41,
+        "y_km": 0.33
+      },
+      {
+        "sequence": 8,
+        "label": "Stop 5",
+        "x_km": 6.55,
+        "y_km": 1.67
+      },
+      {
+        "sequence": 9,
+        "label": "Stop 7",
+        "x_km": 5.38,
+        "y_km": 0.33
+      },
+      {
+        "sequence": 10,
+        "label": "Stop 2",
+        "x_km": 3.83,
+        "y_km": 0.47
+      },
+      {
+        "sequence": 11,
+        "label": "Stop 4",
+        "x_km": 2.34,
+        "y_km": 0.37
+      },
+      {
+        "sequence": 12,
+        "label": "Stop 1",
+        "x_km": 2.21,
+        "y_km": 1.86
+      },
+      {
+        "sequence": 13,
+        "label": "Stop 8",
+        "x_km": 2.7,
+        "y_km": 4.08
+      },
+      {
+        "sequence": 14,
+        "label": "Stop 14",
+        "x_km": 4.45,
+        "y_km": 1.83
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "title": "Add 20% pickers to the Erfurt Night shift",
+      "body": "It runs at 68% of planned staffing, so picking runs past the carrier cut-off and parcels wait most of a day.",
+      "impact": "37% late now"
+    },
+    {
+      "title": "Rebalance stock for 60% of split orders",
+      "body": "11% of orders ship from a far site. 66% of those are late vs 12% of others.",
+      "impact": "Weekly placement run"
+    },
+    {
+      "title": "Move cross-border volume from Hermes to DPD",
+      "body": "Hermes is late on 36% of Poland and France orders.",
+      "impact": "Carrier SLA"
+    },
+    {
+      "title": "Plan routes with 2-opt every morning",
+      "body": "The sample route is 51% shorter after optimisation.",
+      "impact": "-51% km"
+    }
+  ]
+}
